@@ -9,7 +9,7 @@ const contactReducer = (state = initialState, action) => {
         .then((res) => (res[0] ? res[0].name : state));
       return state;
     case "ADD_CONTACT":
-      return;
+      return [...state, { id: state.length > 0 ? state[state.length - 1].id + 1 : 1, name: action.payload.name }];
     default:
       return state;
   }

@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { addContact, editContact, deleteContact } from "../actions";
+import Button from "@mui/material/Button";
 
 const { BACKEND_URL } = process.env;
 
@@ -29,21 +30,18 @@ class Contact extends React.Component {
   }
 
   displayGrid = (contacts) => {
-    {
-      contacts.length ? (
-        contacts.map((contact) => (
-          <h2>
-            {contact.id} + ":" + {contact.name}
-          </h2>
-        ))
-      ) : (
-        <h2>No data</h2>
-      );
-    }
+    return contacts.length > 0 ? (
+      contacts.map((contact) => (
+        <h2>
+          {contact.id}:{contact.name}
+        </h2>
+      ))
+    ) : (
+      <h2>No data</h2>
+    );
   };
 
   render() {
-    console.log("contacts ", this.props.contacts);
     return (
       <div>
         {this.displayGrid(this.props.contacts)}
@@ -51,8 +49,21 @@ class Contact extends React.Component {
         <h2>Add Contact:</h2>
         id: <input type="text" name="id" disabled />
         name:{" "}
-        <input type="text" name="name" value={this.name} onChange={(e) => this.setState({ name: e.target.value })} />
-        <button onClick={() => this.props.addContact({ name: this.state.name })}>Add</button>
+        <input
+          type="text"
+          name="name"
+          value={this.state.name}
+          onChange={(e) => this.setState({ name: e.target.value })}
+        />
+        <Button
+          onClick={() => {
+            this.props.addContact({ name: this.state.name });
+            this.setState({ name: "" });
+          }}
+          variant="contained"
+        >
+          Add
+        </Button>
       </div>
     );
   }
