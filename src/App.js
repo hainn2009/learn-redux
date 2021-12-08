@@ -4,6 +4,7 @@ import { increment, decrement } from "./actions";
 import Counter from "./components/Counter";
 import QRCode from "qrcode.react";
 import UploadFile from "./components/UploadFile";
+import Contact from "./components/Contact";
 
 function App() {
   const counter = useSelector((state) => state.counter);
@@ -20,6 +21,8 @@ function App() {
       <br />
       <QRCode value="http://google.com" includeMargin="true" />
       <UploadFile />
+      <br />
+      <Contact />
     </div>
   );
 }

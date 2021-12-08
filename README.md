@@ -1,3 +1,7 @@
 ## What to do next
 
-- Need to clear
+- Implement backend
+
+## 08/12/2021
+
+- Add Contact component
