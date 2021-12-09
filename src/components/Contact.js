@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { addContact, editContact, deleteContact } from "../actions";
 import Button from "@mui/material/Button";
+import { DataGrid } from "@mui/x-data-grid";
+import { getContainerUtilityClass } from "@mui/material";
 
 const { BACKEND_URL } = process.env;
 
@@ -30,14 +32,25 @@ class Contact extends React.Component {
   }
 
   displayGrid = (contacts) => {
-    return contacts.length > 0 ? (
-      contacts.map((contact) => (
-        <h2>
-          {contact.id}:{contact.name}
-        </h2>
-      ))
-    ) : (
-      <h2>No data</h2>
+    const columns = [
+      { field: "id", headerName: "ID", width: 70 },
+      { field: "name", headerName: "Name", width: 130 },
+    ];
+
+    // return contacts.length > 0 ? (
+    //   contacts.map((contact) => (
+    //     <h2>
+    //       {contact.id}:{contact.name}
+    //     </h2>
+    //   ))
+    // ) : (
+    //   <h2>No data</h2>
+    // );
+    return (
+      <div style={{ height: 400, width: "100%" }}>
+        {" "}
+        <DataGrid columns={columns} rows={contacts} pageSize={5} rowsPerPageOptions={[5]} checkboxSelection />
+      </div>
     );
   };
 
