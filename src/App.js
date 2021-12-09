@@ -5,6 +5,8 @@ import Counter from "./components/Counter";
 import QRCode from "qrcode.react";
 import UploadFile from "./components/UploadFile";
 import Contact from "./components/Contact";
+// import Dashboard from "./components/dashboard/Dashboard";
+import DataTable from "./components/DataTable";
 
 function App() {
   const counter = useSelector((state) => state.counter);
@@ -23,6 +25,7 @@ function App() {
       <UploadFile />
       <br />
       <Contact />
+      {/* <DataTable /> */}
     </div>
   );
 }
