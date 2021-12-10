@@ -2,14 +2,13 @@ const initialState = [];
 const contactReducer = (state = initialState, action) => {
   switch (action.type) {
     case "FETCH_CONTACT":
-      fetch("http://localhost:3000/api/contacts", {
-        method: "get",
-      })
-        .then((res) => res.json())
-        .then((res) => (res[0] ? res[0].name : state));
-      return state;
+      return [...action.payload];
     case "ADD_CONTACT":
-      return [...state, { id: state.length > 0 ? state[state.length - 1].id + 1 : 1, name: action.payload.name }];
+      return [...state, action.payload];
+    case "EDIT_CONTACT":
+      return state.map((contact) => (contact.id === action.payload.id ? action.payload : contact));
+    case "DELETE_CONTACT":
+      return state.filter((contact) => contact.id !== action.payload);
     default:
       return state;
   }

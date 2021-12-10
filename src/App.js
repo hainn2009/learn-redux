@@ -2,11 +2,11 @@ import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "./actions";
 import Counter from "./components/Counter";
-import QRCode from "qrcode.react";
 import UploadFile from "./components/UploadFile";
 import Contact from "./components/Contact";
 // import Dashboard from "./components/dashboard/Dashboard";
-import DataTable from "./components/DataTable";
+// import DataTable from "./components/DataTable";
+import DataGridDemo from "./components/DataGridDemo";
 
 function App() {
   const counter = useSelector((state) => state.counter);
@@ -21,11 +21,11 @@ function App() {
       <br />
       <Counter />
       <br />
-      <QRCode value="http://google.com" includeMargin="true" />
       <UploadFile />
       <br />
       <Contact />
       {/* <DataTable /> */}
+      {/* <DataGridDemo /> */}
     </div>
   );
 }
