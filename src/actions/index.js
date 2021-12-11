@@ -29,10 +29,26 @@ export const addContact = (contact) => async (dispatch) => {
     payload: savedContact,
   });
 };
-export const editContact = (contact) => ({
-  type: "EDIT_CONTACT",
-  payload: contact,
-});
+export const editContact = (contact) => async (dispatch) => {
+  try {
+    const res = await fetch(`http://localhost:4001/api/contacts`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(contact),
+    });
+    const savedContact = await res.json();
+    dispatch({
+      type: "EDIT_CONTACT",
+      payload: savedContact,
+    });
+  } catch (e) {
+    console.log(e);
+    dispatch({
+      type: "EDIT_FAILURE",
+      payload: e,
+    });
+  }
+};
 export const deleteContact = (id) => async (dispatch) => {
   const res = await fetch(`http://localhost:4001/api/contacts/${id}`, {
     method: "delete",
