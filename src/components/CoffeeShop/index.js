@@ -4,18 +4,20 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import CardReview from "./CardReview";
+import { fetchReview } from "../../actions/coffeeShop";
+import { connect } from "react-redux";
 
 const { REACT_APP_BACKEND_URL } = process.env;
 
+const mapStateToProps = (state) => {
+  return {
+    reviews: state.coffeeShop.reviews,
+  };
+};
+
 class CoffeeShop extends React.Component {
   async componentDidMount() {
-    // console.log(REACT_APP_BACKEND_URL);
-    const response = await fetch(`${REACT_APP_BACKEND_URL}/api/Reviews`, {
-      method: "GET",
-      // headers: { "Content-Type": "application/json" },
-    });
-    const reviews = await response.text();
-    console.log(reviews);
+    this.props.fetchReview();
   }
   render() {
     return (
@@ -33,10 +35,10 @@ class CoffeeShop extends React.Component {
             </ListItemButton>
           </ListItem> */}
         </List>
-        <CardReview />
+        <CardReview reviews={this.props.reviews} />
       </div>
     );
   }
 }
 
-export default CoffeeShop;
+export default connect(mapStateToProps, { fetchReview })(CoffeeShop);
