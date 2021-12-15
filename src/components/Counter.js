@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { incrementByAmount } from "../actions";
+import { Button } from "reactstrap";
 
 class Counter extends React.Component {
   state = {
@@ -10,7 +11,9 @@ class Counter extends React.Component {
     return (
       <div>
         <h1>Counter {this.props.counter}</h1>
-        <button onClick={() => this.props.incrementByAmount(Number(this.state.amount))}>Increment amount</button>
+        <Button color="danger" onClick={() => this.props.incrementByAmount(Number(this.state.amount))}>
+          Increment amount
+        </Button>
         <input name="amount" value={this.state.amount} onChange={(e) => this.setState({ amount: e.target.value })} />
       </div>
     );

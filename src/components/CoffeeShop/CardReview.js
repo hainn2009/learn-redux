@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardContent } from "@mui/material";
+import { Card, CardBody, CardTitle, CardSubtitle, CardText, Button } from "reactstrap";
 
 const CardReview = ({ reviews }) => {
   return (
@@ -7,21 +7,23 @@ const CardReview = ({ reviews }) => {
       {reviews ? (
         reviews.map((review) => {
           return (
-            <Card variant="outlined" key={review.id}>
-              <CardContent>
-                CoffeeShop: {review.coffeeShop.name}
-                <br />
-                Date: {review.date}
-                <br />
-                Review ID: {review.id}
-                <br />
-                Review: {review.comments}
-                <br />
-                Rating: {review.rating}
-                <br />
-                Reviewer: {review.reviewer.email}
-                <br />
-              </CardContent>
+            <Card color="light">
+              <CardBody>
+                <CardTitle tag="h5">CoffeeShop: {review.coffeeShop.name}</CardTitle>
+                <CardSubtitle className="mb-2 text-muted" tag="h6">
+                  Date: {review.date}
+                </CardSubtitle>
+                <CardText>
+                  Review ID: {review.id}
+                  <br />
+                  Review: {review.comments}
+                  <br />
+                  Rating: {review.rating}
+                  <br />
+                  Reviewer: {review.reviewer.email}
+                </CardText>
+                <Button color="primary">Details</Button>
+              </CardBody>
             </Card>
           );
         })

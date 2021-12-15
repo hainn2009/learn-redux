@@ -1,8 +1,4 @@
 import React from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import CardReview from "./CardReview";
 import { fetchReview, fetchCoffeeShop, fetchReviewer } from "../../actions/coffeeShop";
 import { connect } from "react-redux";
@@ -25,26 +21,16 @@ const mapStateToProps = (state) => {
 
 class CoffeeShop extends React.Component {
   async componentDidMount() {
-    this.props.fetchReview();
-    this.props.fetchCoffeeShop();
-    this.props.fetchReviewer();
+    // Phai co async await để load đầy đủ dữ liệu
+    await this.props.fetchCoffeeShop();
+    await this.props.fetchReviewer();
+    await this.props.fetchReview();
   }
   render() {
     return (
       <div>
         <h1>CoffeShop</h1>
-        <List>
-          <ListItem disablePadding>
-            <ListItemButton>
-              <ListItemText primary="Trash" />
-            </ListItemButton>
-          </ListItem>
-          {/* <ListItem disablePadding>
-            <ListItemButton component="a" href="#simple-list">
-              <ListItemText primary="Spam" />
-            </ListItemButton>
-          </ListItem> */}
-        </List>
+
         <CardReview reviews={this.props.reviews} />
       </div>
     );

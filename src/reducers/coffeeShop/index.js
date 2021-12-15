@@ -1,12 +1,16 @@
-import { combineReducers } from "redux";
-import coffeeShops from "./coffeeShop";
-import reviews from "./review";
-import reviewers from "./reviewer";
-
-const coffeeShopReducer = combineReducers({
-  coffeeShops,
-  reviews,
-  reviewers,
-});
+const coffeeShopReducer = (state = { coffeShops: [], reviews: [], reviewer: [], isLoading: false }, action) => {
+  switch (action.type) {
+    case "FETCH_COFFEESHOP":
+      return { ...state, coffeeShops: action.payload };
+    case "FETCH_REVIEW":
+      return { ...state, reviews: action.payload };
+    case "FETCH_REVIEWER":
+      return { ...state, reviewers: action.payload };
+    case "FETCH_ALL":
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
 export default coffeeShopReducer;
