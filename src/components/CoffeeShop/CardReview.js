@@ -9,12 +9,18 @@ const CardReview = ({ reviews }) => {
           return (
             <Card variant="outlined" key={review.id}>
               <CardContent>
-                CoffeeShop: {review.coffeeShopId}
+                CoffeeShop: {review.coffeeShop.name}
+                <br />
                 Date: {review.date}
-                ID: {review.id}
+                <br />
+                Review ID: {review.id}
+                <br />
                 Review: {review.comments}
-                Reviewer: {review.publishserId}
+                <br />
                 Rating: {review.rating}
+                <br />
+                Reviewer: {review.reviewer.email}
+                <br />
               </CardContent>
             </Card>
           );

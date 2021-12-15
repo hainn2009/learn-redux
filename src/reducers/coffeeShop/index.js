@@ -1,9 +1,12 @@
-const coffeeShopReducer = (state = { reviews: [] }, action) => {
-  switch (action.type) {
-    case "FETCH_REVIEW":
-      return { reviews: action.payload };
-    default:
-      return state;
-  }
-};
+import { combineReducers } from "redux";
+import coffeeShops from "./coffeeShop";
+import reviews from "./review";
+import reviewers from "./reviewer";
+
+const coffeeShopReducer = combineReducers({
+  coffeeShops,
+  reviews,
+  reviewers,
+});
+
 export default coffeeShopReducer;
