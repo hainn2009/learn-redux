@@ -1,4 +1,5 @@
 import "./App.css";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch, connectAdvanced } from "react-redux";
 import { increment, decrement } from "./actions";
 import Counter from "./components/Counter";
@@ -15,6 +16,15 @@ function App() {
   const dispatch = useDispatch();
   return (
     <div>
+      <h1>My App</h1>
+      <nav
+        style={{
+          borderBottom: "solid 1px",
+          paddingBottom: "1rem",
+        }}
+      >
+        <Link to="/counter">Counter</Link> | <Link to="/coffeeShop">Coffee Shop</Link>
+      </nav>
       <CoffeeShop />
       <h1>Counter {counter}</h1>
       <button onClick={() => dispatch(increment())}>Increment</button>

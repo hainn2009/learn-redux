@@ -8,6 +8,9 @@ import thunk from "redux-thunk";
 import reducer from "./reducers";
 import { Provider } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Counter from "./components/Counter";
+import CoffeeShop from "./components/CoffeeShop";
 
 // const store = createStore(
 //   reducer,
@@ -17,7 +20,13 @@ const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="counter" element={<Counter />} />
+        <Route path="coffeeShop" element={<CoffeeShop />} />
+      </Routes>
+    </BrowserRouter>
   </Provider>,
   document.getElementById("root")
 );
