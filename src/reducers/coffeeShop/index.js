@@ -1,4 +1,4 @@
-const coffeeShopReducer = (state = { coffeShops: [], reviews: [], reviewer: [], isLoading: false }, action) => {
+const coffeeShopReducer = (state = { coffeeShops: [], reviews: [], reviewers: [], isLoading: false }, action) => {
   switch (action.type) {
     case "FETCH_COFFEESHOP":
       return { ...state, coffeeShops: action.payload };

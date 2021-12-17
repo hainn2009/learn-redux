@@ -1,5 +1,10 @@
 export function fetchReview() {
-  return async function (dispatch) {
+  return async function (dispatch, getState) {
+    const {
+      coffeeShop: { coffeeShops, reviewers },
+    } = getState();
+    if (coffeeShops.length === 0) dispatch(fetchCoffeeShop());
+    if (reviewers.length === 0) dispatch(fetchReviewer());
     const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/Reviews");
     const result = await res.json();
     dispatch({

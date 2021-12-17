@@ -1,6 +1,6 @@
 import React from "react";
 import CardReview from "./CardReview";
-import { fetchReview, fetchCoffeeShop, fetchReviewer } from "../../actions/coffeeShop";
+import { fetchReview } from "../../actions/coffeeShop";
 import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
@@ -20,13 +20,11 @@ const mapStateToProps = (state) => {
 };
 
 class CoffeeShop extends React.Component {
-  async componentDidMount() {
-    // Phai co async await để load đầy đủ dữ liệu
-    await this.props.fetchCoffeeShop();
-    await this.props.fetchReviewer();
-    await this.props.fetchReview();
+  componentDidMount() {
+    this.props.fetchReview();
   }
   render() {
+    console.log("render run");
     return (
       <div>
         <h1>CoffeShop</h1>
@@ -37,4 +35,4 @@ class CoffeeShop extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, { fetchReview, fetchCoffeeShop, fetchReviewer })(CoffeeShop);
+export default connect(mapStateToProps, { fetchReview })(CoffeeShop);

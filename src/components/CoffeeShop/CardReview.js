@@ -5,10 +5,10 @@ const CardReview = ({ reviews }) => {
   return (
     <div>
       <CardGroup>
-        {reviews ? (
+        {reviews.length > 0 ? (
           reviews.map((review) => {
             return (
-              <Card color="light">
+              <Card color="light" key={review.id}>
                 <CardBody>
                   <CardTitle tag="h5">CoffeeShop: {review.coffeeShop.name}</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
