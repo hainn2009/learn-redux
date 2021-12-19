@@ -1,6 +1,6 @@
 import "./App.css";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch, connectAdvanced } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { increment, decrement } from "./actions";
 import Counter from "./components/Counter";
 import UploadFile from "./components/UploadFile";

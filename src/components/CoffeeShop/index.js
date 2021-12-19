@@ -1,7 +1,8 @@
 import React from "react";
-import CardReview from "./CardReview";
-import { fetchReview } from "../../actions/coffeeShop";
+import { fetchAll } from "../../actions/coffeeShop";
 import { connect } from "react-redux";
+import CardReview from "./CardReview";
+import AddReview from "./AddReview";
 
 const mapStateToProps = (state) => {
   const reviews = state.coffeeShop.reviews.map((review) => {
@@ -21,18 +22,18 @@ const mapStateToProps = (state) => {
 
 class CoffeeShop extends React.Component {
   componentDidMount() {
-    this.props.fetchReview();
+    this.props.fetchAll();
   }
   render() {
     console.log("render run");
     return (
       <div>
         <h1>CoffeShop</h1>
-
+        <AddReview />
         <CardReview reviews={this.props.reviews} />
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, { fetchReview })(CoffeeShop);
+export default connect(mapStateToProps, { fetchAll })(CoffeeShop);
