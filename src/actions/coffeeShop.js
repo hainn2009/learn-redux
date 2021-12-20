@@ -27,26 +27,32 @@ export const fetchReviewer = () => async (dispatch) => {
     payload: result,
   });
 };
-export const fetchAll = () => async (dispatch) => {
+export const fetchAll = () => (dispatch) => {
   // await fetchCoffeeShop();
   // await fetchReviewer();
   // await fetchReview();
-  let res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/CoffeeShops");
-  let result = await res.json();
-  dispatch({
-    type: "FETCH_COFFEESHOP",
-    payload: result,
-  });
-  res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/Reviewers");
-  result = await res.json();
-  dispatch({
-    type: "FETCH_REVIEWER",
-    payload: result,
-  });
-  res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/Reviews");
-  result = await res.json();
-  dispatch({
-    type: "FETCH_REVIEW",
-    payload: result,
-  });
+  fetch(process.env.REACT_APP_BACKEND_URL + "/api/CoffeeShops")
+    .then((res) => res.json())
+    .then((result) =>
+      dispatch({
+        type: "FETCH_COFFEESHOP",
+        payload: result,
+      })
+    );
+  fetch(process.env.REACT_APP_BACKEND_URL + "/api/Reviewers")
+    .then((res) => res.json())
+    .then((result) =>
+      dispatch({
+        type: "FETCH_REVIEWER",
+        payload: result,
+      })
+    );
+  fetch(process.env.REACT_APP_BACKEND_URL + "/api/Reviews")
+    .then((res) => res.json())
+    .then((result) =>
+      dispatch({
+        type: "FETCH_REVIEW",
+        payload: result,
+      })
+    );
 };
