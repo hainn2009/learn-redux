@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 // import DataTable from "./components/DataTable";
 import DataGridDemo from "./components/DataGridDemo";
 import CoffeeShop from "./components/CoffeeShop";
+import Main from "./components/Main";
 
 function App() {
   const counter = useSelector((state) => state.counter);
@@ -23,9 +24,11 @@ function App() {
           paddingBottom: "1rem",
         }}
       >
-        <Link to="/counter">Counter</Link> | <Link to="/coffeeShop">Coffee Shop</Link>
+        <Link to="/counter">Counter</Link> | <Link to="/coffeeShop">Coffee Shop</Link> |{" "}
+        <Link to="/meetup">Meet Up</Link>
       </nav>
-      <CoffeeShop />
+      <Main />
+
       <h1>Counter {counter}</h1>
       <button onClick={() => dispatch(increment())}>Increment</button>
       <button onClick={() => dispatch(decrement())}>Decrement</button>
