@@ -7,9 +7,10 @@ import UploadFile from "./components/UploadFile";
 import Contact from "./components/Contact";
 // import Dashboard from "./components/dashboard/Dashboard";
 // import DataTable from "./components/DataTable";
-import DataGridDemo from "./components/DataGridDemo";
-import CoffeeShop from "./components/CoffeeShop";
+// import DataGridDemo from "./components/DataGridDemo";
+// import CoffeeShop from "./components/CoffeeShop";
 import Main from "./components/Main";
+import Navbar from "./components/Navbar";
 
 function App() {
   const counter = useSelector((state) => state.counter);
@@ -27,6 +28,7 @@ function App() {
         <Link to="/counter">Counter</Link> | <Link to="/coffeeShop">Coffee Shop</Link> |{" "}
         <Link to="/meetup">Meet Up</Link>
       </nav>
+      <Navbar />
       <Main />
 
       <h1>Counter {counter}</h1>
@@ -41,6 +43,21 @@ function App() {
       {/* <Contact /> */}
       {/* <DataTable /> */}
       {/* <DataGridDemo /> */}
+      <div>
+        <Link to="/meetups/add">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="48"
+            height="48"
+            fill="currentColor"
+            className="bi bi-plus-circle-fill float-end"
+            viewBox="0 0 16 16"
+            color="red"
+          >
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z" />
+          </svg>
+        </Link>
+      </div>
     </div>
   );
 }
