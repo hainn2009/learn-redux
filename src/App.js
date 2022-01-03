@@ -28,7 +28,7 @@ function App() {
         <Link to="/counter">Counter</Link> | <Link to="/coffeeShop">Coffee Shop</Link> |{" "}
         <Link to="/meetup">Meet Up</Link>
       </nav>
-      <Navbar />
+      {/* <Navbar /> */}
       <Main />
 
       <h1>Counter {counter}</h1>
