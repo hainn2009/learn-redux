@@ -12,10 +12,13 @@ import Contact from "./components/Contact";
 import Main from "./components/Main";
 import Navbar from "./components/Navbar";
 
+
+
 function App() {
   const counter = useSelector((state) => state.counter);
   const isLooged = useSelector((state) => state.isLogged);
   const dispatch = useDispatch();
+
   return (
     <div>
       <h1>My App</h1>
@@ -26,7 +29,7 @@ function App() {
         }}
       >
         <Link to="/counter">Counter</Link> | <Link to="/coffeeShop">Coffee Shop</Link> |{" "}
-        <Link to="/meetup">Meet Up</Link>
+        <Link to="/meetup">Meet Up</Link> | <Link to="/contact">Contact</Link>
       </nav>
       {/* <Navbar /> */}
       <Main />
