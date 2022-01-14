@@ -24,7 +24,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-class CoffeeShop extends React.Component {
+class Review extends React.Component {
   componentDidMount() {
     this.props.fetchAll();
   }
@@ -40,4 +40,4 @@ class CoffeeShop extends React.Component {
   }
 }
 
-export default connect(mapStateToProps, { fetchAll })(CoffeeShop);
+export default connect(mapStateToProps, { fetchAll })(Review);

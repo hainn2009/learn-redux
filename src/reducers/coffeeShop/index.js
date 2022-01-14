@@ -2,6 +2,8 @@ const coffeeShopReducer = (state = { coffeeShops: [], reviews: [], reviewers: []
   switch (action.type) {
     case "FETCH_COFFEESHOP":
       return { ...state, coffeeShops: action.payload };
+    case "FETCH_COFFEESHOP_WITH_OTHER_INFO":
+      return { ...state, coffeeShopsWithOtherInfo: action.payload };
     case "FETCH_REVIEW":
       return { ...state, reviews: action.payload };
     case "FETCH_REVIEWER":

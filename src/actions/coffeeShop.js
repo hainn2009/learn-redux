@@ -19,6 +19,14 @@ export const fetchCoffeeShop = () => async (dispatch) => {
     payload: result,
   });
 };
+export const fetchCoffeeShopWithOtherInfo = () => async (dispatch) => {
+  const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/CoffeeShops/getWithOtherInfo");
+  const coffeeShops = await res.json();
+  dispatch({
+    type: "FETCH_COFFEESHOP_WITH_OTHER_INFO",
+    payload: coffeeShops,
+  });
+};
 export const fetchReviewer = () => async (dispatch) => {
   const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/Reviewers");
   const result = await res.json();
